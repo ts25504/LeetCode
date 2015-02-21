@@ -1,2 +1,2 @@
 # LeetCode
-LeetCode练习
+LeetCode练习 (CPP)
