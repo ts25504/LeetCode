@@ -18,15 +18,17 @@
 #include <utility>
 #include <algorithm>
 
+using namespace std;
+
 class Solution {
 public:
-    std::vector<int> twoSum(std::vector<int>& numbers, int target)
+    vector<int> twoSum(vector<int>& numbers, int target)
     {
-        std::vector<int> ret;
-        std::multimap<int, int> m;
+        vector<int> ret;
+        multimap<int, int> m;
         for (int i = 0; i < numbers.size(); ++i)
-            m.insert(std::make_pair(numbers[i], i+1));
-        std::sort(numbers.begin(), numbers.end());
+            m.insert(make_pair(numbers[i], i+1));
+        sort(numbers.begin(), numbers.end());
         int left = 0, right = numbers.size() - 1;
         int sum = 0;
         while (left < right)
