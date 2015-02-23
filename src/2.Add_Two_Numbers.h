@@ -5,9 +5,6 @@
  * Output: 7 -> 0 -> 8
  */
 
-#ifndef Add_Two_Numbers_h
-#define Add_Two_Numbers_h
-
 #include <iostream>
 
 struct ListNode {
@@ -73,4 +70,3 @@ public:
         return l3;
     }
 };
-#endif

@@ -9,9 +9,6 @@
  * Output: index1=1, index2=2
  */
 
-#ifndef Two_Sum_h
-#define Two_Sum_h
-
 #include <iostream>
 #include <vector>
 #include <map>
@@ -70,6 +67,3 @@ public:
         return ret;
     }
 };
-
-#endif
-
