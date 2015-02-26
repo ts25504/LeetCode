@@ -21,41 +21,44 @@ public:
     vector<vector<int> > threeSum(vector<int>& num)
     {
         sort(num.begin(), num.end());
-        int left = 0, right = 0, mid = 0;
-        int neg = 0;
+        int left = 0, right = 0;
         vector<vector<int> > res;
         if (num.size() < 3)
             return res;
-        for (int i = 0; i < num.size(); ++i)
-            if (num[i] <= 0 && num[i+1] > 0)
-                neg = i;
         int sz = num.size();
 
-        for (int i = 0; i <= neg; ++i)
+        for (int i = 0; i < sz-2; ++i)
         {
             if (i > 0 && num[i] == num[i-1])
                 continue;
-            for (int j = i+1; j < sz; ++j)
+            left = i + 1;
+            right = sz - 1;
+            while (left < right)
             {
-                left = i + 1;
-                right = j - 1;
-                while (left <= right)
+                if (num[left] + num[right] == -num[i])
                 {
-                    mid = (left + right) / 2;
-                    if (num[i] + num[j] + num[mid] == 0)
-                    {
-                        res.push_back({num[i], num[mid], num[j]});
-                        break;
-                    }
-                    else if (num[i] + num[j] + num[mid] < 0)
-                        left = mid + 1;
-                    else
-                        right = mid - 1;
+                    res.push_back({num[i], num[left], num[right]});
+                    while (left < sz && num[left] == num[left+1])
+                        ++left;
+                    while (right > 0 && num[right] == num[right-1])
+                        --right;
+                    ++left;
+                    --right;
+                }
+                else if (num[left] + num[right] < -num[i])
+                {
+                    while (left < sz && num[left] == num[left+1])
+                        ++left;
+                    ++left;
+                }
+                else
+                {
+                    while (right > 0 && num[right] == num[right-1])
+                        --right;
+                    --right;
                 }
             }
         }
-        sort(res.begin(), res.end());
-        res.erase(unique(res.begin(), res.end()), res.end());
         return res;
     }
 };
