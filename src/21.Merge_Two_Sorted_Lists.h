@@ -36,7 +36,7 @@ public:
         }
         p3 = l3;
         l3 = l3->next;
-        free(p3);
+        delete(p3);
         return l3;
     }
 };
