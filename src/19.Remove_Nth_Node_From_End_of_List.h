@@ -28,7 +28,7 @@ public:
         {
             ListNode* p3 = head;
             head = head->next;
-            free(p3);
+            delete(p3);
             return head;
         }
 
@@ -40,7 +40,7 @@ public:
 
         ListNode* p3 = p1->next;
         p1->next = p3->next;
-        free(p3);
+        delete(p3);
         return head;
     }
 };
