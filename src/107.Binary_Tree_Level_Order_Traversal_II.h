@@ -1,5 +1,5 @@
 /*
- * Given a binary tree, return the level order traversal of its nodes' values. (ie, from left to right, level by level).
+ * Given a binary tree, return the bottom-up level order traversal of its nodes' values. (ie, from left to right, level by level from leaf to root).
  */
 
 #include <vector>
@@ -38,10 +38,9 @@ public:
                 if (node->right)
                     node_queue.push(node->right);
             }
-            if (level % 2 == 1)
-                reverse(res[level].begin(), res[level].end());
             ++level;
         }
+        reverse(res.begin(), res.end());
         return res;
     }
 };
