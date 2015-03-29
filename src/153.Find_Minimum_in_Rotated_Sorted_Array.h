@@ -15,6 +15,7 @@ using namespace std;
 
 class Solution {
 public:
+    /*
     int findMin(vector<int>& num)
     {
         return binarySearch(num, 0, num.size() - 1);
@@ -40,5 +41,19 @@ public:
         }
         else
             return min(num[left], num[right]);
+    }
+    */
+    int findMin(vector<int>& num)
+    {
+        int left = 0, right = num.size() - 1;
+        while (left < right)
+        {
+            int mid = left + (right - left) / 2; // Avoid left + right overflow.
+            if (num[mid] > num[right])
+                left = mid + 1;
+            else
+                right = mid;
+        }
+        return num[left];
     }
 };
